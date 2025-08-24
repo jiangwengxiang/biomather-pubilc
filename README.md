@@ -1,4 +1,4 @@
-# 王者理学(biomather)
+# 王者理学(Biomather)
 
 > [!NOTE]
 > Only Chinese Edition is currently available.
@@ -6,7 +6,7 @@
 
 > [!NOTE]
 > 项目正在开发中，如果你想为我们的项目提供其他语言的版本，请通过[www.jiang090322@outlook.com](mailto:www.jiang090322@outlook.com)联系我。我将可以允许你加入该项目，为我们翻译其他语言的版本（包括但不限于英文、法文、德文、日文等）。
-> 项目正在开发中，欢迎贡献代码或想法。如果你在某些计算机语言上有一技之长，你可以通过[www.jiang090322@outlook.com](mailto:www.jiang090322@outlook.com)联系我。我可以允许你加入该项目，为我们提供其他语言的版本（包括但不限于Go、Python、Java、HTML等）。
+> 项目正在开发中，欢迎贡献代码或想法。如果你在某些计算机语言上有一技之长，你可以通过[www.jiang090322@outlook.com](mailto:www.jiang090322@outlook.com)联系我。我可以允许你加入该项目，为我们提供其他语言的版本（包括C++、HTML）。
 
 
 ### 简介
@@ -54,5 +54,5 @@ biomather 是自由软件，采用Apache发行的Apache License 2.0许可证进�
 - Email: [www.jiang090322@outlook.com](mailto:www.jiang090322@outlook.com)
 
 ### 许可证
-该项目在Apache License 2.0许可下发布。详情见[LICENSE文件](./LICENSE)。# biomather-pubilc
-这是一个面向学生的公共项目，旨在帮助他们练习理科计算能力，并将其作为学习工具使用。    
+该项目在Apache License 2.0许可下发布。详情见[LICENSE文件](./LICENSE)。
+
