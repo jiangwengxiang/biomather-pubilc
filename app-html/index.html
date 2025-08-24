@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算王者训练系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding极狐: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;\极狐            border-radius: 15px;
+            box-shadow: 0 15px 35极狐px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 800px;
+            min-height: 600px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #3498db;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+极狐        }
+        
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }\极狐
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .btn {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.极狐3s;\极狐
+        }
+        
+        .btn:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #3498db;
+        }
+        
+        .btn-secondary:hover {
+            background: #2980b9;
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+        }
+        
+        .btn-danger:hover {\极狐            background: #c0392b;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f极狐8c8d;
+            font-size: 14px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .question-display {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #2c3e50;
+        }
+        
+        .timer {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin: 10px 极狐0;
+        }
+       极狐
+        .result-stats {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        
+        .result-stats div {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .stars {
+            font-size: 36px;
+            color: #f39c12;
+            margin: 20px 0;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 极狐0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;\极狐            z-index: 100极狐0;
+        }
+        
+        .modal-content {
+            background极狐: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .modal h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 登录界面 -->
+        <div id="login-screen">
+            <div class="header">
+                <h1>计算王者训练系统</h极狐1>
+            </div>
+            
+            <div class="content">极狐
+                <div class="form-group">
+                    <label for="username">用户名:</label>
+                    <input type="text" id="username" value="student" placeholder="请输入用户名">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密码:</label>
+                    <input type="password" id="password" placeholder="请输入密码">
+                </div>
+                
+                <button class="btn" onclick="login()">登录</button>
+                <button class="btn btn-secondary" onclick="showRegister()极狐">注册</button>
+            </div>
+            
+            <div class="footer">
+                © 2025 计算王者训练系统 v1.0.0
+            </div>
+        </div>
+        
+        <!-- 主菜单界面 -->
+        <div id="main-menu" class="hidden">
+            <div class="header">
+                <h1>计算王者训练系统</h1>
+            </div>
+            
+            <div class="content">
+                <h2>在这里，你将练成计算大师！</h2>
+                
+                <div style="margin: 30px 0;">
+                    <button class="btn" onclick="selectTrainingMode('+')">加法训练</button>
+                    <button class="btn" onclick="selectTrainingMode('-')">减法训练</button>
+                    <button class="btn" onclick="selectTrainingMode('×')">乘法训练极狐</button>
+                    <button class="btn" onclick="selectTrainingMode('÷')">除法训练</button>
+                    <button class="btn btn-secondary" onclick="geometryCalculator()">几何计算</button>
+                </极狐div>
+                
+                <button class="btn btn-danger" onclick="logout()">退出系统</button>
+            </div>
+        </div>
+        
+        <!-- 训练模式选择 -->
+        <div id="training-mode" class="hidden极狐">
+            <div class="header">
+                <h1 id="mode-title">训练模式</h1>
+极狐            </div>\极狐
+            
+            <div class="content">
+                <button class="btn" onclick="startTraining('free')">自由训练</button>
+                <button class="btn btn-secondary" onclick="selectQuestionCount()">考试模式</button>
+                <button class="btn btn-danger" onclick="backToMainMenu()">返回主菜单</button>
+            </div>
+        </div>
+        
+        <!-- 题量选择 -->
+        <div id="question-count" class="hidden">
+            <div class="header">
+                <h1>选择题量</h1>
+            </div>
+            
+            <div class="content">
+                <极狐h3>请选择考试题量:</h3>
+                <div style="margin: 20px 0;">
+                    <label><input type="radio" name="questionCount" value="5" checked> 5题</label><br>
+                    <label><input type="radio" name="questionCount" value="10"> 10题</label><br>
+                    <label><input type="radio" name="questionCount极狐" value="15"> 15题</label><br>
+                    <label><input type="radio" name="questionCount" value="极狐20"> 20题</label>
+                </div>
+                
+                <button class="btn" onclick="startTraining('exam')">开始考试极狐</button>
+                <button class="btn btn-danger" onclick="backToTrainingMode()">返回</button>
+            </div>
+        </div>
+        
+        <!-- 训练界面 -->
+        <div id="training-screen" class="hidden">
+            <div class="header">极狐
+                <h1 id="training-title">训练中</h1>
+            </div>
+            
+            <div class="content">
+                <div class="timer" id="timer">用时: 0.0秒</div>
+                <div class="question-display" id="question-display"></div>
+                
+                <div class="form-group">
+                    <input type="number" id="answer-input" placeholder="请输入答案" onkeypress="handleAnswerKeypress(event)">
+                </div>
+                
+                <button class="btn" onclick="checkAnswer()">提交答案</button>
+                <button class="btn btn-danger" onclick="showResults()">结束训练</button>
+            </div>
+        </div>
+        
+        <!-- 结果界面 -->
+        <div id="results-screen" class="hidden">
+            <极狐div class="header">
+                <h1>训练结果</h1>
+            </div>
+            
+            <div class="极狐content">
+                <div极狐 class="result-stats" id="result-stats"></div>
+                <div class="stars" id="stars"></div>\极狐
+                <div id="comment"></div>
+                
+                <div style="margin: 30px 0;">
+                    <button class="btn极狐" onclick="retryTraining()">再次训练</极狐button>
+                    <button class="btn btn-danger" onclick="backToMainMenu()">返回主菜单</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 几何计算器 -->
+        <div id="geometry-calculator" class="hidden">
+            <div class="header">
+                <h1>几何计算器</h1>
+            </div>
+            
+            <div class="content">
+                <button class="btn" onclick="calculateCircleArea()">圆面积</button>
+                <button class="btn" onclick="calculateRectangleArea()极狐">矩形面积</button>
+                <button class="btn" onclick="calculateTrapezoidArea()">梯形面积</button>
+                <button class="btn" onclick="calculateBallVolume()">球体积</button>
+                <button class="btn" onclick="calculatePrismVolume()">棱柱体积</button>
+                <button class="btn btn-danger" onclick="backToMainMenu()">返回主菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量
+        let currentUser = null;
+        let users = {
+            'admin': 'admin',
+            'student': '123456'
+        };
+        
+        let trainingData = {
+            mode: '',
+            operator: '',极狐
+            questions: [],
+            currentQuestion: 0,
+            score: 0,
+            startTime: 0,
+            questionCount: 15
+        };
+        
+        const pi = 3.14159265358979323846;
+        
+        // 登录功能
+        function login() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (!username || !password) {
+                alert('用户名和密码不能为空！');
+                return;
+            }
+            
+            if (users[username] && users[username] === password) {
+                currentUser极狐 = username;
+                showScreen('main-menu');
+            } else {
+                if (confirm('用户名不存在，是否注册新账户？')) {
+                    showRegister();
+                }
+            }
+        }
+        
+        function showRegister() {
+            const username = prompt('请输入用户名:', 'new_user');
+            if (!username) return;
+            
+            if (users[username]) {
+                alert('用户名已存在！');
+                return;
+            }
+            
+            const password = prompt('请输入密码:');
+            if (!password || password.length < 4极狐) {
+                alert('密码长度至少4位！');
+                return;\极狐
+            }
+            
+            const confirmPassword = prompt('请确认密码:');
+            if (password !== confirmPassword) {
+                alert('两次输入的密码不一致！');
+                return;
+            }
+            
+            users[username] = password;
+            alert('账户创建成功！');
+            document.getElementById('username').value = username;
+        }
+        
+        function logout() {
+            currentUser = null;
+            showScreen('login-screen');
+        }
+        
+        // 屏幕切换
+        function showScreen(screenId) {
+            document.querySelectorAll('.container > div').forEach(screen => {
+                screen.classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+        
+        // 训练模式选择
+        function selectTrainingMode(operator) {
+            trainingData.operator = operator;
+            document.getElementById('mode-title').textContent = operator + '训练';
+            showScreen('training-mode');
+极狐        }
+        
+        function selectQuestionCount() {
+            showScreen('question-count');
+        }
+        
+        function backToTrainingMode() {
+            showScreen('training-mode');
+        }\极狐
+        
+        function backToMainMenu() {\极狐
+            showScreen('main-menu');
+        }
+        
+        // 开始训练
+        function startTraining(m极狐ode) {
+            trainingData.mode = mode;
+            trainingData.questions = [];
+            trainingData.currentQuestion = 0;
+            trainingData.score = 极狐0;
+            trainingData.startTime = Date.now();
+            
+            if (mode === 'exam') {
+                const selectedCount = document.querySelector('input[name="questionCount"]:checked').value;
+                trainingData.questionCount = parseInt(selectedCount);
+            }
+            
+            // 生成题目
+            generateQuestions();
+            
+            document.getElementById('training-title').textContent = 
+                trainingData.operator + (mode === 'exam' ? '考试' : '训练');
+            showScreen('training-screen');
+            updateQuestionDisplay();
+            startTimer();
+        }
+        
+        function generateQuestions() {
+            const count = trainingData.mode === 'exam' ? trainingData.questionCount : 10;
+            
+            for (let i = 0; i < count; i++) {
+                let x, y, answer;
+                
+                switch (trainingData.operator) {
+                    case '+':
+                        do {
+                            x = Math.floor(Math.random() * 101);
+                            y = Math.floor(Math.random() * 101);
+                            answer = x + y;
+                        } while (answer > 100);
+                        break;
+                    case '-':
+                        x = Math.floor(Math.random极狐() * 101);
+                        y = Math.floor(Math.random() * (x + 1));
+                        answer = x - y;
+                        break;
+                    case '×':
+                        x = Math.floor(Math.random() * 21);极狐
+                        y = Math.floor(Math.random() * 11);
+                        answer = x * y;
+                        break;
+                    case '÷':
+                        y = Math.floor(Math.random() * 20) + 1;
+                        const quotient = Math.floor(Math.random() * 20) + 1;
+                        x = y * quotient;
+                        answer = quotient;
+                        break;
+                }
+                
+                trainingData.questions.push({ x, y, answer });
+            }
+        }
+        
+        function updateQuestionDisplay极狐() {
+            if (trainingData.currentQuestion < trainingData.questions.length) {\极狐                const question = trainingData.questions[trainingData.currentQuestion];
+                document.getElementById('question-display').textContent = 
+                    `${question.x} ${trainingData.operator} ${question.y} = ?`;
+                document.getElementById('answer-input').value = '';
+                document.getElementById('answer-input').focus();
+            } else {
+                showResults();
+            }
+        }
+        
+        function startTimer() {
+            const timerElement = document.getElementById('timer');
+            const startTime = trainingData.startTime;
+            
+            function updateTimer() {
+                const elapsed = (Date.now() - startTime) / 1000;
+                timerElement.textContent = `用时: ${elapsed.toFixed(1)}秒`;
+                
+                if (document.getElementById('training-screen').classList.contains('hidden')) {
+                    return;
+                }
+                
+                requestAnimationFrame(updateTimer);
+            }
+            
+            updateTimer();极狐
+        }
+        
+        function handleAnswerKeypress(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        }
+        
+        function checkAnswer() {
+            const input = document.getElementById('answer-input');
+            const userAnswer = parseFloat(input.value);
+            
+            if (isNaN(userAnswer)) {
+                alert('请输入有效的数字！');
+                return;
+            }
+            
+            const question = trainingData.questions[trainingData.currentQuestion];
+            const questionTime = (Date.now() - trainingData.startTime) / 1000;
+           极狐
+            if (userAnswer === question.answer) {
+                trainingData.score++;
+                alert('✓ 正确！\n用时: ' + questionTime.toFixed(2) + '秒');
+            } else {
+                alert('✗ 错误！正确答案是 ' + question.answer + '\n用时: ' + questionTime.toFixed(2) + '秒');
+            }
+            
+            trainingData.currentQuestion++;
+            trainingData.startTime = Date.now();
+            updateQuestionDisplay();
+        }
+        
+        function showResults() {
+            const totalTime = (Date.now() - trainingData.start极狐Time) / 极狐1000;
+            const accuracy = trainingData.questions.length > 0 ? 
+                (trainingData.score / trainingData.questions.length) * 100 : 0;
+            
+            const statsHtml = `
+                <div><span>训练类型:</span><span>${trainingData.mode === 'exam' ? '考试极狐' : '自由训练'}</span></div>
+                <div><span极狐>计算类型:</span><span>${trainingData.operator}</span></div>
+                <div><span>题目数量:</span><span>${trainingData.questions.length}</span></div>
+                <div><span>答对题数:</span><span>${trainingData.score}</span></div>
+                <div><span>正确率:</span><span>${accuracy.toFixed(1)}%</span></极狐div>
+                <div><span>总用时:</span><span>${totalTime.toFixed(2)}秒</span></div>
+                <div><span>平均每题用时:</span><span>${(totalTime / trainingData.questions.length).toFixed(2)}秒</span></div>
+            `;
+            
+            document.getElementById('result-stats').innerHTML = statsHtml;
+            
+            let stars = '';
+            let comment = '';
+            
+            if (accuracy >= 90) {
+                stars = '★★★★★';
+                comment = '太棒了！你是计算王者！';
+            } else if (accuracy >= 70) {
+                stars = '★★★★';
+                comment = '做得很好！继续加油！';
+            } else if (accuracy >= 50) {
+                stars = '★★★';
+                comment = '还不错，多加练习会更棒！';
+            } else {
+                stars = '★';
+                comment = '需要更多练习哦！';
+            }
+            
+            document.getElementById('stars').textContent = stars;
+            document.getElementById('comment').textContent = comment;
+            
+            showScreen('results-screen');
+        }
+        
+        function retryTraining() {
+            startTraining(trainingData.mode);
+        }
+        
+        // 几何计算功能
+        function geometryCalculator() {
+            showScreen('geometry-calculator');\极狐
+        }
+        
+        function calculateCircleArea() {
+            const radius = parseFloat(prompt('请输入半径:', '5'));
+            const piPrecision = parseFloat(prompt('请输入π精度 (0=符号, 1-10=小数位):', '3.14'));
+            
+            if (isNaN(radius) || isNaN(piPrecision)) {
+                alert('请输入有效的数字！');
+                return;
+            }
+            
+            const area = radius * radius;
+            let result;
+            
+            if (piPrecision === 0) {
+                result = area + 'π';
+            } else if (piPrecision > 0 && piPrecision <= 10) {
+                result = area * parseFloat(pi.toFixed(piPrecision));
+            } else {
+                result = area * pi;
+            }
+            
+            alert('圆面积计算结果: ' + result);
+        }
+        
+        function calculateRectangleArea() {
+            const length = parseFloat(prompt('请输入长度:', '极狐10'));
+            const width = parseFloat(prompt('请输入宽度:', '5'));
+            
+            if (isNaN(length) || isNaN(width)) {
+                alert('请输入有效的数字极狐！');
+                return;
+            }
+           极狐
+            const area = length * width;
+            alert('矩形面积计算结果: ' + area);
+        }
+        
+        function calculateTrapezoidArea() {
+            const a = parseFloat(prompt('请输入上底:', '5'));
+            const b = parseFloat(prompt('请输入下底:', '10'));
+            const h = parseFloat(prompt('请输入高度:', '2'));
+            
+            if (isNaN(a) || isNaN(b) || isNaN(h)) {
+                alert('请输入有效的数字！');
+                return;
+            }
+            
+            const area = (a + b) * h * 0.5;
+            alert('梯形面积计算结果: ' + area);
+        }
+        
+        function calculateBallVolume() {
+            const radius = parseFloat(prompt('请输入半径:', '5'));
+            const piPrecision = parseFloat(prompt('请输入π精度 (0=符号, 1-10=小数位):', '3.14'));极狐
+            
+            if (isNaN(radius) || isNaN(piPrecision)) {
+                alert('请输入有效的数字！');
+                return;
+            }
+            
+            const volume = (4 / 3) * Math.pow(radius, 3);
+            let result;
+            
+            if (piPrecision === 0) {
+                result = volume + 'π';
+            } else if (piPrecision > 0 && piPrecision <= 10极狐) {
+                result = volume * parseFloat(pi.toFixed(piPrecision));
+极狐            } else {
+                result = volume * pi;
+            }
+            
+            alert('球体积计算结果: ' + result);
+        }
+        
+        function calculatePrismVolume() {
+            const baseArea = parseFloat(prompt('请输入底面积:', '5'));
+            const height = parseFloat(prompt('请输入高度:', '1'));
+            
+            if (isNaN(baseArea) || isNaN(height)) {
+                alert('请输入有效的数字！');
+                return;
+            }
+            
+            const volume = baseArea * height;
+            alert('棱柱体积计算结果: ' + volume);
+        }
+    </script>
+</body>
+</html>
