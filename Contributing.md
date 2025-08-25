@@ -27,8 +27,7 @@
 4. 在本地进行修改，并提交到您的仓库。修改完成后，在我们组织的仓库中创建一个Pull Request。
 
 5. 等待我们审核您的Pull Request，若通过则合并。
-   
-   
+
 > [!TIP]
 > 在此过程中请尽量使用Git命令行、Github Desktop等方式进行提交。
 
@@ -66,8 +65,9 @@
 ### 关于Python的开发规范
 
 1. 我们对于内部测试的Python文件有如下规定规定
+   
    * 1. 开头的规范
-   详见 `app-bate-v0.1.0.py`([点击跳转](./app-bate-v0.1.0.py)) 开头的代码规范，务必认真阅读。
+        详见 `app-bate-v0.1.0.py`([点击跳转](./app-bate-v0.1.0.py)) 开头的代码规范，务必认真阅读。
    
    * 2. 请按照以下代码风格进行开发：
    
@@ -79,84 +79,98 @@
    ```
    
    * 3. 对于函数名及变量命名，请使用下划线命名法，如：
-      * - user_name
-      * - user_password
-      * - user_age
+        * - user_name
+        * - user_password
+        * - user_age
    
    * 4. 对于类名或模块名，请使用驼峰式命名法，如：
-      * - jsonParser
-      * - widget
+        * - jsonParser
+        * - widget
    
    * 5. 对于其他的代码规范的规定：
-      * 1. 对于那些不需要展开的代码，尽量压成一行
-      * 2. 对于那些需要增添缩进的行，请务必保持缩进为4个空格
-      * 3. 对于行间注释，请使用#开头，并与需注释的代码保持在同一行，如：
-         ```python
-         sum = 0  # 这是一个注释 ```
-      * 4. 对于函数及类的注释，请使用"""开头,并单独占用一或多行行，如：
-         ```python
-         def func():
-         """
-         这是一个函数
-         """
-         print("hello world")
-         ```
+        
+        * 1. 对于那些不需要展开的代码，尽量压成一行
+        
+        * 2. 对于那些需要增添缩进的行，请务必保持缩进为4个空格
+        
+        * 3. 对于行间注释，请使用#开头，并与需注释的代码保持在同一行，如：
+             ```python
+             sum = 0  # 这是一个注释 ```
+        
+        * 4. 对于函数及类的注释，请使用"""开头,并单独占用一或多行行，如：
+             
+             ```python
+             def func():
+             """
+             这是一个函数
+             """
+             print("hello world")
+             ```
 
 ### 关于C++的开发规范
 
 * 注意：使用C++开发的版本属于公共测试版或正式版，因此请务必认真对待C++的开发
-* 提醒：当前C++的版本还未开发，如果您想贡献C++代码，请务必与我们取得联系，确认您所做的开发不与其他人重复。
 
+* 提醒：当前C++的版本还未开发，如果您想贡献C++代码，请务必与我们取得联系，确认您所做的开发不与其他人重复。
 1. 关于头文件我们有如下规定：
     请务必使用以下格式编写头文件：
-    ```cpp
-    #ifndef __HEADER_H__
-    #define __HEADER_H__
-    ```
+   
+   ```cpp
+   #ifndef __HEADER_H__
+   #define __HEADER_H__
+   ```
+
 2. 关于C++的代码风格，请按照如下的示例进行开发：
-    ```cpp
-    #include <iostream>
-    using namespace std;
-
-    void massage(), line();
-
-    int main()
+   
+   ```cpp
+   #include <iostream>
+   using namespace std;
+   
+   void massage(), line();
+   
+   int main()
    {
-	    cout << "maybe I hate writing C++!" << endl;
-	    massage();
-	    line();
-	    cout << "this is too difficult to learn !" << endl;
-	    line();
-	    return 0;
+       cout << "maybe I hate writing C++!" << endl;
+       massage();
+       line();
+       cout << "this is too difficult to learn !" << endl;
+       line();
+       return 0;
    }
-
-    void massage()
+   
+   void massage()
    {
-	    cout << "C++ is a language that too many people dislike to learn !" << endl;
+       cout << "C++ is a language that too many people dislike to learn !" << endl;
    }
-
-    void line()
-    {
-	    cout << "------------------------------------------" << endl;
-    }
-    ```
+   
+   void line()
+   {
+       cout << "------------------------------------------" << endl;
+   }
+   ```
 
 3. 对于函数名，变量名，类名以及模块名的命名，请保持与Python的开发规范一致。（不在此赘述）
 
 4. 对于其他的规范，我们有如下规定：
-    * 1. 对于不需要展开的代码，请尽量压成一行
-    * 2. 对于需要增添缩进的行，请务必保持缩进为4个空格
-    * 3. 对于行间注释，请使用//开头，并与需注释的代码保持在同一行，如：
+   
+   * 1. 对于不需要展开的代码，请尽量压成一行
+   
+   * 2. 对于需要增添缩进的行，请务必保持缩进为4个空格
+   
+   * 3. 对于行间注释，请使用//开头，并与需注释的代码保持在同一行，如：
+        
         ```cpp
         int sum = 0; // 这是一个注释
         ```
-    * 4. 对于函数及类的注释，请使用/**开头,并以*/结束，可以使用多行或仅一行注释如：
-       ```cpp
+   
+   * 4. 对于函数及类的注释，请使用/** 开头,并以*/结束，可以使用多行或仅一行注释如：
+        
+        ```cpp
         /**
         * 这是一个函数
         */
         void func()
         {
-            cout << "hello world" << endl;
+           cout << "hello world" << endl;
         }
         ```

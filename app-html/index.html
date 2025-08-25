@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- 计算王者训练系统前端代码(由AI生成，未经人工核实) -->
+
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +9,7 @@
     <style>
         * {
             margin: 0;
-            padding极狐: 0;
+            padding: 0;
             box-sizing: border-box;
         }
         
@@ -21,8 +23,10 @@
         }
         
         .container {
-            background: white;\极狐            border-radius: 15px;
-            box-shadow: 0 15px 35极狐px rgba(0, 0, 0, 0.3);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             width: 90%;
             max-width: 800px;
             min-height: 600px;
@@ -40,7 +44,12 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 10px;
-极狐        }
+        }
+        
+        .header p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
         
         .content {
             padding: 30px;
@@ -57,7 +66,8 @@
             margin-bottom: 8px;
             font-weight: bold;
             color: #2c3e50;
-        }\极狐
+        }
+
         
         .form-group input {
             width: 100%;
@@ -82,7 +92,7 @@
             font-size: 16px;
             cursor: pointer;
             margin: 10px;
-            transition: all 0.极狐3s;\极狐
+            transition: all 0.3s, transform 0.3s;
         }
         
         .btn:hover {
@@ -102,13 +112,14 @@
             background: #e74c3c;
         }
         
-        .btn-danger:hover {\极狐            background: #c0392b;
+        .btn-danger:hover {
+            background: #c0392b;
         }
         
         .footer {
             text-align: center;
             padding: 20px;
-            color: #7f极狐8c8d;
+            color: #7f8c8d;
             font-size: 14px;
         }
         
@@ -126,9 +137,9 @@
         .timer {
             font-size: 18px;
             color: #7f8c8d;
-            margin: 10px 极狐0;
+            margin: 10px 0;
         }
-       极狐
+        
         .result-stats {
             text-align: left;
             margin: 20px auto;
@@ -156,14 +167,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 极狐0.5);
+            background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
-            align-items: center;\极狐            z-index: 100极狐0;
+            align-items: center;
+            z-index: 1000;
         }
         
         .modal-content {
-            background极狐: white;
+            background: white;
             padding: 30px;
             border-radius: 15px;
             text-align: center;
@@ -182,10 +194,10 @@
         <!-- 登录界面 -->
         <div id="login-screen">
             <div class="header">
-                <h1>计算王者训练系统</h极狐1>
+                <h1>计算王者训练系统</h1>
             </div>
             
-            <div class="content">极狐
+            <div class="content">   
                 <div class="form-group">
                     <label for="username">用户名:</label>
                     <input type="text" id="username" value="student" placeholder="请输入用户名">
@@ -197,7 +209,7 @@
                 </div>
                 
                 <button class="btn" onclick="login()">登录</button>
-                <button class="btn btn-secondary" onclick="showRegister()极狐">注册</button>
+                <button class="btn btn-secondary" onclick="showRegister()">注册</button>
             </div>
             
             <div class="footer">
@@ -220,17 +232,17 @@
                     <button class="btn" onclick="selectTrainingMode('×')">乘法训练极狐</button>
                     <button class="btn" onclick="selectTrainingMode('÷')">除法训练</button>
                     <button class="btn btn-secondary" onclick="geometryCalculator()">几何计算</button>
-                </极狐div>
+                </div>
                 
                 <button class="btn btn-danger" onclick="logout()">退出系统</button>
             </div>
         </div>
         
         <!-- 训练模式选择 -->
-        <div id="training-mode" class="hidden极狐">
+        <div id="training-mode" class="hidden">
             <div class="header">
                 <h1 id="mode-title">训练模式</h1>
-极狐            </div>\极狐
+            </div>
             
             <div class="content">
                 <button class="btn" onclick="startTraining('free')">自由训练</button>
@@ -246,22 +258,22 @@
             </div>
             
             <div class="content">
-                <极狐h3>请选择考试题量:</h3>
+                <h3>请选择考试题量:</h3>
                 <div style="margin: 20px 0;">
                     <label><input type="radio" name="questionCount" value="5" checked> 5题</label><br>
                     <label><input type="radio" name="questionCount" value="10"> 10题</label><br>
-                    <label><input type="radio" name="questionCount极狐" value="15"> 15题</label><br>
-                    <label><input type="radio" name="questionCount" value="极狐20"> 20题</label>
+                    <label><input type="radio" name="questionCount" value="15"> 15题</label><br>
+                    <label><input type="radio" name="questionCount" value="20"> 20题</label>
                 </div>
                 
-                <button class="btn" onclick="startTraining('exam')">开始考试极狐</button>
+                <button class="btn" onclick="startTraining('exam')">开始考试</button>
                 <button class="btn btn-danger" onclick="backToTrainingMode()">返回</button>
             </div>
         </div>
         
         <!-- 训练界面 -->
         <div id="training-screen" class="hidden">
-            <div class="header">极狐
+            <div class="header">
                 <h1 id="training-title">训练中</h1>
             </div>
             
@@ -280,17 +292,16 @@
         
         <!-- 结果界面 -->
         <div id="results-screen" class="hidden">
-            <极狐div class="header">
-                <h1>训练结果</h1>
+            <h1>训练结果</h1>
             </div>
             
-            <div class="极狐content">
-                <div极狐 class="result-stats" id="result-stats"></div>
-                <div class="stars" id="stars"></div>\极狐
+            <div class="content">
+                <div class="result-stats" id="result-stats"></div>
+                <div class="stars" id="stars"></div>
                 <div id="comment"></div>
                 
                 <div style="margin: 30px 0;">
-                    <button class="btn极狐" onclick="retryTraining()">再次训练</极狐button>
+                    <button class="btn" onclick="retryTraining()">再次训练</button>
                     <button class="btn btn-danger" onclick="backToMainMenu()">返回主菜单</button>
                 </div>
             </div>
@@ -304,7 +315,7 @@
             
             <div class="content">
                 <button class="btn" onclick="calculateCircleArea()">圆面积</button>
-                <button class="btn" onclick="calculateRectangleArea()极狐">矩形面积</button>
+                <button class="btn" onclick="calculateRectangleArea()">矩形面积</button>
                 <button class="btn" onclick="calculateTrapezoidArea()">梯形面积</button>
                 <button class="btn" onclick="calculateBallVolume()">球体积</button>
                 <button class="btn" onclick="calculatePrismVolume()">棱柱体积</button>
@@ -323,7 +334,7 @@
         
         let trainingData = {
             mode: '',
-            operator: '',极狐
+            operator: '',
             questions: [],
             currentQuestion: 0,
             score: 0,
@@ -363,9 +374,9 @@
             }
             
             const password = prompt('请输入密码:');
-            if (!password || password.length < 4极狐) {
+            if (!password || password.length < 4) {
                 alert('密码长度至少4位！');
-                return;\极狐
+                return;
             }
             
             const confirmPassword = prompt('请确认密码:');
@@ -397,7 +408,7 @@
             trainingData.operator = operator;
             document.getElementById('mode-title').textContent = operator + '训练';
             showScreen('training-mode');
-极狐        }
+        }
         
         function selectQuestionCount() {
             showScreen('question-count');
@@ -405,18 +416,18 @@
         
         function backToTrainingMode() {
             showScreen('training-mode');
-        }\极狐
+        }
         
-        function backToMainMenu() {\极狐
+        function backToMainMenu() {
             showScreen('main-menu');
         }
         
         // 开始训练
-        function startTraining(m极狐ode) {
+        function startTraining(mode) {
             trainingData.mode = mode;
             trainingData.questions = [];
             trainingData.currentQuestion = 0;
-            trainingData.score = 极狐0;
+            trainingData.score = 0;
             trainingData.startTime = Date.now();
             
             if (mode === 'exam') {
@@ -471,7 +482,8 @@
         }
         
         function updateQuestionDisplay极狐() {
-            if (trainingData.currentQuestion < trainingData.questions.length) {\极狐                const question = trainingData.questions[trainingData.currentQuestion];
+            if (trainingData.currentQuestion < trainingData.questions.length) {
+                const question = trainingData.questions[trainingData.currentQuestion];
                 document.getElementById('question-display').textContent = 
                     `${question.x} ${trainingData.operator} ${question.y} = ?`;
                 document.getElementById('answer-input').value = '';
@@ -496,7 +508,8 @@
                 requestAnimationFrame(updateTimer);
             }
             
-            updateTimer();极狐
+            updateTimer();  
+
         }
         
         function handleAnswerKeypress(event) {
@@ -535,11 +548,11 @@
                 (trainingData.score / trainingData.questions.length) * 100 : 0;
             
             const statsHtml = `
-                <div><span>训练类型:</span><span>${trainingData.mode === 'exam' ? '考试极狐' : '自由训练'}</span></div>
-                <div><span极狐>计算类型:</span><span>${trainingData.operator}</span></div>
+                <div><span>训练类型:</span><span>${trainingData.mode === 'exam' ? '考试' : '自由训练'}</span></div>
+                <div><span>计算类型:</span><span>${trainingData.operator}</span></div>
                 <div><span>题目数量:</span><span>${trainingData.questions.length}</span></div>
                 <div><span>答对题数:</span><span>${trainingData.score}</span></div>
-                <div><span>正确率:</span><span>${accuracy.toFixed(1)}%</span></极狐div>
+                <div><span>正确率:</span><span>${accuracy.toFixed(1)}%</span></div>
                 <div><span>总用时:</span><span>${totalTime.toFixed(2)}秒</span></div>
                 <div><span>平均每题用时:</span><span>${(totalTime / trainingData.questions.length).toFixed(2)}秒</span></div>
             `;
@@ -575,7 +588,7 @@
         
         // 几何计算功能
         function geometryCalculator() {
-            showScreen('geometry-calculator');\极狐
+            showScreen('geometry-calculator');
         }
         
         function calculateCircleArea() {
@@ -606,10 +619,10 @@
             const width = parseFloat(prompt('请输入宽度:', '5'));
             
             if (isNaN(length) || isNaN(width)) {
-                alert('请输入有效的数字极狐！');
+                alert('请输入有效的数字！');
                 return;
             }
-           极狐
+            
             const area = length * width;
             alert('矩形面积计算结果: ' + area);
         }
@@ -642,9 +655,9 @@
             
             if (piPrecision === 0) {
                 result = volume + 'π';
-            } else if (piPrecision > 0 && piPrecision <= 10极狐) {
+            } else if (piPrecision > 0 && piPrecision <= 10) {
                 result = volume * parseFloat(pi.toFixed(piPrecision));
-极狐            } else {
+            } else {
                 result = volume * pi;
             }
             

@@ -134,7 +134,6 @@ class LoginApp:
     
     def usr_sign_up(self):
         """用户注册功能"""
-        # 创建注册窗口
         window_sign_up = tk.Toplevel(self.root)
         window_sign_up.title('注册新账户')
         window_sign_up.geometry('350x250')
@@ -158,10 +157,10 @@ class LoginApp:
         
         tk.Label(window_sign_up, text='密码:', font=('Arial', 12)).place(x=20, y=60)
         new_pwd = tk.StringVar()
-        entry_new_pwd = tk.Entry(window_sign_up, textvariable=new_pwd, show='*', font=('Arial', 12))
+        entry_new_pwd = tk.Entry(window_sign_up, textvariable=new_pwd, show='*', font=('Arial', 11))
         entry_new_pwd.place(x=120, y=60, width=200)
         
-        tk.Label(window_sign_up, text='确认密码:', font=('Arial', 12)).place(x=20, y=100)
+        tk.Label(window_sign_up, text='再次输入密码:', font=('Arial', 11)).place(x=20, y=100)
         new_pwd_confirm = tk.StringVar()
         entry_new_pwd_confirm = tk.Entry(window_sign_up, textvariable=new_pwd_confirm, show='*', font=('Arial', 12))
         entry_new_pwd_confirm.place(x=120, y=100, width=200)
@@ -183,8 +182,8 @@ class LoginApp:
             if not password:
                 status_var.set("密码不能为空！")
                 return
-            if len(password) < 4:
-                status_var.set("密码长度至少4位！")
+            if len(password) < 6:
+                status_var.set("密码长度至少6位！")
                 return
             if password != confirm:
                 status_var.set("两次输入的密码不一致！")
@@ -234,7 +233,7 @@ class LoginApp:
 class MathTrainerApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("计算王者训练系统")
+        self.root.title("理学王者")
         self.root.geometry("800x600")
         self.root.resizable(True, True)
         
