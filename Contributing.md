@@ -1,3 +1,15 @@
+<p align="center">
+    <img src="./icons/logo.jpg" width="108" height="108">
+</p>
+<h1 align="center">Biomather 贡献指南</h1>
+
+<p align="center" class="language" title="Language selection 语言选择">
+  <a href="docs/Contributing_en_us.md">English(American)</a>  | 
+  <b>简体中文</b> | 
+  <a href="docs/Contributing_fr_fr.md">Français</a>|
+  <a href="docs/Contributing_zh_tw.md">繁體中文</a>
+</p>
+
 # 贡献指南
 
 我们鼓励每个人为Biomather APP贡献内容。
@@ -6,9 +18,9 @@
 
 ## 可贡献类型
 
-> ### 图标贡献(待开发)
+> ### 图标贡献
 
-> 如果任何人想贡献图标，请仔细阅读[icons-about.md](./icons-about.md)文件了解如何贡献。
+> 如果任何人想贡献图标，请仔细阅读[icons-about.md](./icons/icons-about-zh.md)文件了解如何贡献。
 
 > ### 代码贡献
 
@@ -33,11 +45,10 @@
 
 ## 重要提醒
 
-* 若您认为您的修改具有一定重要性或量级时，请按照以下格式阐述更新内容并及时在[更新日志](./upgrade-zh.md)中添加相关内容：
+* 若您认为您的修改具有一定重要性或量级时，请按照以下格式阐述更新内容并及时在[更新日志](./Security)中添加相关内容：
   
       ```
       v1.4.0 (2025-12-31)
-      
       (更新来自 @Somebody)
       - 更新了...
       - 优化了...
@@ -67,7 +78,7 @@
 1. 我们对于内部测试的Python文件有如下规定规定
    
    * 1. 开头的规范
-        详见 `app-bate-v0.1.0.py`([点击跳转](./app-bate-v0.1.0.py)) 开头的代码规范，务必认真阅读。
+        详见 `app-bate-v0.1.0.py`([点击跳转](./app-py/app-bate-v0.1.0.py)) 开头的代码规范，务必认真阅读。
    
    * 2. 请按照以下代码风格进行开发：
    
@@ -79,13 +90,13 @@
    ```
    
    * 3. 对于函数名及变量命名，请使用下划线命名法，如：
-        * - user_name
-        * - user_password
-        * - user_age
+        *  user_name
+        *  user_password
+        *  user_age
    
    * 4. 对于类名或模块名，请使用驼峰式命名法，如：
-        * - jsonParser
-        * - widget
+        *  jsonParser
+        *  widget
    
    * 5. 对于其他的代码规范的规定：
         
@@ -153,17 +164,15 @@
 
 4. 对于其他的规范，我们有如下规定：
    
-   * 1. 对于不需要展开的代码，请尽量压成一行
+   * 1. 第一至二点与上文提到的Python的开发规范保持一致。
    
-   * 2. 对于需要增添缩进的行，请务必保持缩进为4个空格
-   
-   * 3. 对于行间注释，请使用//开头，并与需注释的代码保持在同一行，如：
+   * 2. 对于行间注释，请使用//开头，并与需注释的代码保持在同一行，如：
         
         ```cpp
         int sum = 0; // 这是一个注释
         ```
    
-   * 4. 对于函数及类的注释，请使用/** 开头,并以*/结束，可以使用多行或仅一行注释如：
+   * 3. 对于函数及类的注释，请使用/** 开头,并以*/结束，可以使用多行或仅一行注释如：
         
         ```cpp
         /**

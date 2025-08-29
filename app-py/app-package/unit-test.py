@@ -1,18 +1,10 @@
-""" This is the chemistry computing functions
-from verison is bate 0.2.0 deveioping bate
-you need to know that this is only for test 
-if you want to try our app,you should find the cpp file or html file 
-Copyright (c) 2025 by jourious. All rights reserved.
-we think that you should know that we do not provide this file as a service
-请务必注意：请勿对其中的化学术语进行混淆
-有关化学中相关术语的英中文对照，以及关于本文件中函数名，变量名的选择，详见此文件夹中的about-chemistry.md文件
-"""
+from asyncio.queues import PriorityQueue
 
-# these lists are using to store the chemistry date
-list_chemistry_element = ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne","Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca"]
+
+list_chemistry_element = ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne","Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Fe"]
 list_chemistry_element_chinese = ["氢","氦","锂"]
 list_chemistry_element_relative_atomic_mass = [1.01, 4.00, 6.94, 9.01]
-list_chemistry_element_relative_atomic_mass_int = [1, 4, 7, 9, 11, 12, 14, 16, 19, 20, 23, 24, 27, 28, 31, 32, 35, 40, 39, 40]
+list_chemistry_element_relative_atomic_mass_int = [1, 4, 7, 9, 11, 12, 14, 16, 19, 20, 23, 24, 27, 28, 31, 32, 35, 40, 39, 40, 56]
 
 def get_chemistry_element_number(element):
     """
@@ -48,51 +40,6 @@ def get_chemistry_element_relative_atomic_mass(element):
         return chemistry_element_relative_atomic_mass
     else:
         return "元素不存在"
-
-def get_chemistry_element_relative_atomic_mass_int(element):
-    """
-    此函数用于获取化学元素的相对原子质量(元素符号)
-    输入：元素符号
-    输出：相对原子质量(整数)
-    """
-    if element in list_chemistry_element:
-        chemistry_element_relative_atomic_mass = list_chemistry_element_relative_atomic_mass_int[list_chemistry_element.index(element)]
-        return chemistry_element_relative_atomic_mass
-    else:
-        return "元素不存在"
-
-
-def math_gram_to_mol_int(gram,element):
-    """
-    此函数用于将克转换为摩尔
-    注意：此处的元素使用的是整数型的相对原子质量
-    输入：克，元素符号
-    输出：摩尔
-    """
-    atomic_mass = get_chemistry_element_relative_atomic_mass_int(element)
-    if atomic_mass == "元素不存在":
-        return "元素不存在"
-    else:
-        atomic_mass = int(atomic_mass)
-        gram = int (gram)
-        mol = float (gram/atomic_mass)
-        return mol
-
-def math_mol_to_gram_int(mol,element):
-    """
-    此函数用于将摩尔转换为克
-    注意：此处的元素使用的是整数型的相对原子质量
-    输入：摩尔，元素符号
-    输出：克
-    """
-    atomic_mass = get_chemistry_element_relative_atomic_mass_int(element)
-    if atomic_mass == "元素不存在":
-        return "元素不存在"
-    else:
-        atomic_mass = int(atomic_mass)
-        mol = int (mol)
-        gram = float (mol*atomic_mass)
-        return gram
 
 def parse_chemical_formula(formule, start_index=0):
     """
@@ -160,3 +107,30 @@ def math_relative_molecular_mass(formule):
     """
     result, _ = parse_chemical_formula(formule)
     return result
+
+
+def get_chemistry_element_relative_atomic_mass_int(element):
+    """
+    此函数用于获取化学元素的相对原子质量(元素符号)
+    输入：元素符号
+    输出：相对原子质量(整数)
+    """
+    if element in list_chemistry_element:
+        chemistry_element_relative_atomic_mass = list_chemistry_element_relative_atomic_mass_int[list_chemistry_element.index(element)]
+        return chemistry_element_relative_atomic_mass
+    else:
+        return "元素不存在"
+
+        
+if __name__ == "__main__":
+    print("单测开始")
+    print("H2O:", math_relative_molecular_mass("H2O"))
+    print("CO2:", math_relative_molecular_mass("CO2"))
+    print("NaCl:", math_relative_molecular_mass("NaCl"))
+    print("H2SO4:", math_relative_molecular_mass("H2SO4"))
+    print("CaCO3:", math_relative_molecular_mass("CaCO3"))
+    print("Fe(OH)3:", math_relative_molecular_mass("Fe(OH)3"))
+    print("Al2(SO4)3:", math_relative_molecular_mass("Al2(SO4)3"))
+
+
+ 

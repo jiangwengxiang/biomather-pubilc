@@ -1,15 +1,36 @@
 # 王者理学(Biomather)
+<p align="center">
+    <img src="./icons/logo.jpg" width="100" height="100">
+</p>
+<h1 align="center">Biomather</h1>
+<p align="center" class="shields">
+  <span href="https://github.com/jiangwengxiang/biomather/issues" style="text-decoration:none">
+    <img alt="GitHub issues" src="https://img.shields.io/badge/issues-0-red"/>
+  </span>
+  <span href="https://github.com/jiangwengxiang/biomather/stargazers" style="text-decoration:none">
+    <img alt="GitHub stars" src="https://img.shields.io/badge/stars-0-green"/>  
+  </span>
+  <span href="https://github.com/jiangwengxiang/biomather/network" style="text-decoration:none">
+    <img alt="GitHub forks" src="https://img.shields.io/badge/forks-0-yellow"/>
+  </span>
+  <span href="https://github.com/jiangwengxiang/biomather/LICENSE" style="text-decoration:none">
+    <img alt="GitHub License" src="https://img.shields.io/badge/license-Apache%202.0-blue"/>
+  </span>
+</p>
+<p align="center" class="language" title="Language selection 语言选择">
+  <a href="./docs/README_en_us.md">English</a> | 
+  <b>简体中文</b> | 
+  <a href="./docs/README_fr_fr.md">Français</a>|
+  <a href="./docs/README_zh_tw.md">繁體中文</a>
+</p>
 
-> [!NOTE]
-> Only Chinese Edition is currently available.
-> 注意：目前仅提供中文版。
 
 > [!NOTE]
 > 项目正在开发中，如果你想为我们的项目提供其他语言的版本，请通过[www.jiang090322@outlook.com](mailto:www.jiang090322@outlook.com)联系我。我将可以允许你加入该项目，为我们翻译其他语言的版本（包括但不限于英文、法文、德文、日文等）。
 > 项目正在开发中，欢迎贡献代码或想法。如果你在某些计算机语言上有一技之长，你可以通过[www.jiang090322@outlook.com](mailto:www.jiang090322@outlook.com)联系我。我可以允许你加入该项目，为我们提供其他语言的版本（包括C++、HTML）。
 
 
-### 简介
+# 简介
 这是一个面向学生的公共项目，旨在帮助他们练习数学，物理，化学等学科能力，并将其作为学习工具使用。    
 ### 功能
 1. 数学练习,例如可以进行加减乘除的运算训练。
@@ -41,7 +62,7 @@ biomather 是自由软件，采用Apache发行的Apache License 2.0许可证进�
 1. 任何使用、分享或分发本项目者，必须在项目介绍、文档或相关材料中明确附上原作者信息（姜翁翔，jiangwengxiang）及原项目链接（<https://github.com/jiangwengxiang/mather>）。**您不得故意隐瞒、移除或修改原项目中的署名信息、作者信息或项目链接；不得限制他人查看这些信息**。
 2. 未经修改的源代码不得用于商业用途。
 3. 任何使用或分享本项目者，不得移除、隐藏或限制查看本开源声明。
-4. 用户在发现他人违反前五款所列各项要求时，有义务及时向我们报告，并尽可能及时制止相关内容的发布与传输。
+4. 用户在发现他人违反前三款所列各项要求时，有义务及时向我们报告，并尽可能及时制止相关内容的发布与传输。
 5. 若您实施侵权行为，我们将根据法律规定保留记录，且保留在任何时间以一切方式采取法律行动、追究法律责任的权利（包括但不限于依法向执法机关提交报告、向司法机关提出控告、配合执法机关和司法机关调查等）。
 
 ## 贡献须知
