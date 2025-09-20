@@ -1,6 +1,6 @@
 """
 王者理学程序，使用Python编写，属于伪代码，不可正式发布，仅供内部测试
-版本：v0.1.0-bate01
+版本：v0.2-dev01
 """
 import tkinter as tk
 from tkinter import ttk, messagebox
@@ -17,7 +17,7 @@ class LoginApp:
         # 设置窗口标题
         self.root.title('欢迎来到理学王者')
         # 设置窗口大小
-        self.root.geometry('1080x860')
+        self.root.geometry('1080x960')
         # 设置窗口是否可以调整大小
         self.root.resizable(True, True)
         # 创建欢迎界面
@@ -31,7 +31,7 @@ class LoginApp:
         
         tk.Label(
             header_frame, 
-            text='计算王者训练系统', 
+            text='理学王者', 
             font=('Micsoft Yahei UI', 20, 'bold'), 
             fg='blue', 
             bg='#3498db'
@@ -85,7 +85,7 @@ class LoginApp:
         # 版权信息
         tk.Label(
             self.root, 
-            text='© 2025 计算王者训练系统 v1.0.0', 
+            text='© 2025 理学王者 v0.2-dev01', 
             font=('Micsoft Yahei UI', 10),
             fg='gray'
         ).pack(side=tk.BOTTOM, pady=10)
@@ -133,7 +133,7 @@ class LoginApp:
     def usr_sign_up(self):
         """用户注册功能"""
         window_sign_up = tk.Toplevel(self.root)
-        window_sign_up.title('注册新账户')
+        window_sign_up.title('注册')
         window_sign_up.geometry('350x250')
         window_sign_up.resizable(False, False)
         window_sign_up.grab_set()  # 模态窗口
@@ -232,7 +232,7 @@ class MathTrainerApp:
     def __init__(self, root):
         self.root = root
         self.root.title("理学王者")
-        self.root.geometry("800x600")
+        self.root.geometry("1080x600")
         self.root.resizable(True, True)
         
         # 设置主题

@@ -1,5 +1,5 @@
 # 物理量的中英文对照及其命名（本文使用的语言仅为简体中文）
-> [Note] Only Simply Chinese is supported in this file
+> [!Note] Only Simply Chinese is supported in this file
 
 ## 1.涉及到的物理量如下：
 ### 1.1 力学单位：
@@ -79,8 +79,8 @@
 >   * 末时间：t1
 >   * 出高度：h0
 >   * 末高度：h1
->   * 
->   * 
+>   * 干路电流：current_main(you can also use *curr_main* instead)
+>   * 支路电流：current_branch(you can also use *curr_bran* instead. Also,if we have more than two branches,you can use *curr_bran_01* to name the other)
 >   * 
 >   * 
 >   * 

@@ -6,7 +6,7 @@
 
 ## 关于图标贡献
 
-如果任何人想贡献图标，请通过[Contributing.md](./Contributing.md)文件了解如何贡献。
+如果任何人想贡献图标，请通过[Contributing.md](../Contributing.md)文件了解如何贡献。
 
 > **注意：**
 > 对于图标贡献，在Contributing.md之外应还有如下要求：
