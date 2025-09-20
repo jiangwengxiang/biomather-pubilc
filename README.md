@@ -4,18 +4,18 @@
 </p>
 <h1 align="center">Biomather</h1>
 <p align="center" class="shields">
-  <span href="https://github.com/jiangwengxiang/biomather/issues" style="text-decoration:none">
-    <img alt="GitHub issues" src="https://img.shields.io/badge/issues-0-red"/>
-  </span>
-  <span href="https://github.com/jiangwengxiang/biomather/stargazers" style="text-decoration:none">
-    <img alt="GitHub stars" src="https://img.shields.io/badge/stars-0-green"/>  
-  </span>
-  <span href="https://github.com/jiangwengxiang/biomather/network" style="text-decoration:none">
-    <img alt="GitHub forks" src="https://img.shields.io/badge/forks-0-yellow"/>
-  </span>
-  <span href="https://github.com/jiangwengxiang/biomather/LICENSE" style="text-decoration:none">
-    <img alt="GitHub License" src="https://img.shields.io/badge/license-Apache%202.0-blue"/>
-  </span>
+  <a href="https://github.com/Jourious/biomather-public/issues" style="text-decoration:none">
+    <img src="https://img.shields.io/github/issues/Jourious/biomather-public" alt="GitHub issues"/>
+  </a>
+  <a href="https://github.com/Jourious/biomather-public/stargazers" style="text-decoration:none">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/Jourious/biomather-public"/>
+  </a>
+  <a href="https://github.com/Jourious/biomather-public/network" style="text-decoration:none">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/Jourious/biomather-public"/>
+  </a>
+  <a href="https://github.com/Jourious/biomather-public/LICENSE" style="text-decoration:none">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/Jourious/biomather-public"/>
+  </a>
 </p>
 <p align="center" class="language" title="Language selection 语言选择">
   <a href="./docs/README_en_us.md">English</a> | 

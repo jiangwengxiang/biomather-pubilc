@@ -1,3 +1,7 @@
 {
-    "markdown.validate.enabled": true
+    "markdown.validate.enabled": true,
+    "markdown.validate.ignoredLinks": [
+        "docs/Contributing_fr_fr.md",
+        "docs/Contributing_zh_tw.md"
+    ]
 }
