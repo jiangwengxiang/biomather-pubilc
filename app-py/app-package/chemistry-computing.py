@@ -96,7 +96,7 @@ def math_mol_to_gram_int(mol,element):
 
 def parse_chemical_formula(formule, start_index=0):
     """
-    解析化学式并计算相对分子质量（支持括号）
+    解析化学式并计算相对分子质量（支持小括号）
     """
     total_mass = 0
     i = start_index
