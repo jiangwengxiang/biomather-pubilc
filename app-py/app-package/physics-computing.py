@@ -37,7 +37,7 @@ def calculate_acceleration_fonction02(time, velocity):
     return velocity / time
 
 def calculate_velocity_fonction02(acceleration, time, v0):
-    """计算速度的方式二:v=v0+a*t
+    """计算速度的方式一:v=v0+a*t
     输入参数需为float类型，单位：m/s^2和s
     输出参数为float类型，单位：m/s"""
     return acceleration * time + v0
@@ -45,7 +45,7 @@ def calculate_velocity_fonction02(acceleration, time, v0):
 # 电磁学计算函数如下
 """电磁学计算函数可能由于编者学识有限，存在问题时请及时指正"""
 def calculate_voltage_fonction01(current, resistance):
-    """计算电压的方式一:V=I*R
+    """计算电压的方式一:V=I*R(适用于纯电阻电路)
     输入参数需为float类型，单位：A和Ω
     输出参数为float类型，单位：V"""
     return current * resistance
@@ -56,3 +56,28 @@ def calculate_current_fonction01(voltage, resistance):
     输出参数为float类型，单位：A"""
     return voltage / resistance
 
+def calculate_resistance_fonction01(voltage, current):
+    """计算电阻的方式一:R=V/I
+    输入参数需为float类型，单位：V和A
+    输出参数为float类型，单位：Ω"""
+    return voltage / current
+
+# 行星运动定律相关计算
+
+def calculate_universal_gravitation_function(G,mass01,mass02,distance):
+    """计算万有引力的方式一:F=G*m1*m2/r^2
+    输入参数需为float类型，单位：m/s^2和kg
+    输出参数为float类型，单位：N"""
+    if G == "G" and mass01 == "m1" and mass02 == "m2" and distance == "r":
+        return "G * m1 * m2 / r**2"
+    else:
+        s=type(G)
+        if s == str:
+            if type(mass01) == str and type(mass02) == str and type(distance) == float or type(distance) == int:
+                return "G * m1 * m2"/"" + r**2
+            else:
+                if type(mass01) == str and type(mass02) == float or type(mass02) == int and type(distance) == float or type(distance) == int:
+                    return G * mass01 * mass02 / distance**2
+                else:
+                    return "输入参数错误"
+        
