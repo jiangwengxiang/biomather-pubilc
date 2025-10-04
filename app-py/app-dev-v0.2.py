@@ -1242,8 +1242,6 @@ def math_relative_molecular_mass(formule):
     输入：化学式
     输出：相对分子质量
     """
-    # 创建一个临时的ChemistryComputingApp实例来调用内部方法
-    # 注意：这只是为了兼容性，在实际应用中应该使用类的实例
     temp_root = tk.Tk()
     temp_root.withdraw()  # 隐藏窗口
     temp_app = ChemistryComputingApp(temp_root)
@@ -1262,6 +1260,7 @@ def parse_chemical_formula(formule, start_index=0):
     result = temp_app.parse_chemical_formula(formule, start_index)
     temp_root.destroy()
     return result
+
 
 if __name__ == "__main__":
     root = tk.Tk()
